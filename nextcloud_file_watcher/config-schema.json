@@ -1,10 +1,44 @@
 {
-  "nextcloud_url": "str",
-  "username": "str",
-  "password": "str",
-  "watch_folder": "str",
-  "interval": "int",
-  "file_types": ["str"],
-  "notify_service": "str",
-  "enable_contact_lookup": "bool"
-} 
+  "type": "object",
+  "properties": {
+    "nextcloud_url": {
+      "type": "string",
+      "title": "Nextcloud URL"
+    },
+    "username": {
+      "type": "string",
+      "title": "Benutzername"
+    },
+    "password": {
+      "type": "string",
+      "title": "Passwort"
+    },
+    "watch_folder": {
+      "type": "string",
+      "title": "Überwachter Ordner"
+    },
+    "interval": {
+      "type": "integer",
+      "title": "Intervall in Sekunden",
+      "default": 600
+    },
+    "file_types": {
+      "type": "array",
+      "title": "Dateitypen",
+      "items": {
+        "type": "string"
+      },
+      "default": [".jpg", ".png"]
+    },
+    "notify_service": {
+      "type": "string",
+      "title": "Home Assistant Benachrichtigungsservice"
+    },
+    "enable_contact_lookup": {
+      "type": "boolean",
+      "title": "Kontakt-Suche aktivieren",
+      "default": false
+    }
+  },
+  "required": ["nextcloud_url", "username", "password", "watch_folder", "notify_service"]
+}
