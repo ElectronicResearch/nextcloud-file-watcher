@@ -1,0 +1,10 @@
+{
+  "nextcloud_url": "str",
+  "username": "str",
+  "password": "str",
+  "watch_folder": "str",
+  "interval": "int",
+  "file_types": ["str"],
+  "notify_service": "str",
+  "enable_contact_lookup": "bool"
+}
