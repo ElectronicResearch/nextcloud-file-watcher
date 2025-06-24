@@ -1,2 +1,2 @@
 #!/bin/bash
-python3 -m nextcloud_file_watcher
+python3 nextcloud_file_watcher/briefkasten_watcher.py
