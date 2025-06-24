@@ -10,6 +10,5 @@
   "arch": ["amd64", "aarch64"],
   "homeassistant_api": true,
   "hassio_api": true,
-  "host_network": true,
-  "image": "local/nextcloud_file_watcher"
+  "host_network": true
 }
