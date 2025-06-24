@@ -15,7 +15,7 @@
     "notify_service": "notify.mobile_app_dein_gerät",
     "enable_contact_lookup": false
   },
-  "schema": "schema.json",
+  "schema": "config-schema.json",
   "arch": ["amd64", "aarch64"],
   "homeassistant_api": true,
   "hassio_api": true,
