@@ -1,7 +1,7 @@
 {
   "name": "Nextcloud File Watcher",
   "version": "1.0.8",
-  "slug": "briefkasten_watcher",
+  "slug": "nextcloud_file_watcher",
   "description": "Überwacht Nextcloud-Ordner und sendet Push-Benachrichtigungen bei neuen Dateien",
   "startup": "application",
   "boot": "auto",
