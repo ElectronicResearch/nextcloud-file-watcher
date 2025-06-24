@@ -19,8 +19,8 @@
   "arch": ["amd64", "aarch64"],
   "homeassistant_api": true,
   "hassio_api": true,
-  "host_network": true
-},
-"environment": {
-  "SUPERVISOR_TOKEN": "${SUPERVISOR_TOKEN}"
+  "host_network": true,
+  "environment": {
+    "SUPERVISOR_TOKEN": "${SUPERVISOR_TOKEN}"
+  }
 }
