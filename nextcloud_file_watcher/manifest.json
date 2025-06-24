@@ -1,0 +1,15 @@
+{
+  "name": "Nextcloud File Watcher",
+  "version": "1.0.8",
+  "slug": "nextcloud_file_watcher",
+  "description": "Überwacht Nextcloud-Ordner und sendet Push-Benachrichtigungen bei neuen Dateien",
+  "startup": "application",
+  "boot": "auto",
+  "arch": ["amd64", "aarch64"],
+  "homeassistant_api": true,
+  "host_network": true,
+  "options": true,
+  "schema": true,
+  "url": "https://github.com/ElectronicResearch/nextcloud-file-watcher",
+  "init": false
+}
