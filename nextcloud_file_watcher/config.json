@@ -1,23 +1,31 @@
 {
-  "name": "Nextcloud File Watcher",
-  "version": "1.1.2",
-  "slug": "nextcloud_file_watcher",
-  "description": "Überwacht Nextcloud-Ordner und sendet Push-Benachrichtigungen bei neuen Dateien",
-  "startup": "application",
-  "boot": "auto",
-  "options": {
-    "nextcloud_url": "https://deine-nextcloud.example.com",
-    "username": "dein-benutzer",
-    "password": "dein-passwort",
-    "watch_folder": "Briefkasten",
-    "interval": 600,
-    "file_types": [".jpg", ".jpeg", ".png", ".pdf"],
-    "notify_service": "notify.mobile_app_dein_gerät",
-    "enable_contact_lookup": false
-  },
-  "schema": "config-schema.json",
-  "arch": ["amd64", "aarch64"],
-  "homeassistant_api": true,
-  "hassio_api": true,
-  "host_network": true
+    "name": "Nextcloud File Watcher",
+    "version": "1.1.2",
+    "slug": "nextcloud_file_watcher",
+    "description": "Überwacht Nextcloud-Ordner und sendet Push-Benachrichtigungen bei neuen Dateien",
+    "startup": "application",
+    "boot": "auto",
+    "options": {
+        "nextcloud_url": "https://deine-nextcloud.example.com",
+        "username": "dein-benutzer",
+        "password": "dein-passwort",
+        "watch_folder": "Briefkasten",
+        "interval": 600,
+        "file_types": [
+            ".jpg",
+            ".jpeg",
+            ".png",
+            ".pdf"
+        ],
+        "notify_service": "notify.mobile_app_dein_gerät",
+        "enable_contact_lookup": false
+    },
+    "schema": "config-schema.json",
+    "arch": [
+        "amd64",
+        "aarch64"
+    ],
+    "homeassistant_api": true,
+    "hassio_api": true,
+    "host_network": true
 }
