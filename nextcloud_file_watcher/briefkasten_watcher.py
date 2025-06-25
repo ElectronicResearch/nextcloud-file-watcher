@@ -32,7 +32,7 @@ def load_config():
 def list_remote_files(config):
     """Listet alle Dateien im überwachten Nextcloud-Ordner"""
     try:
-        url = f"{config['nextcloud_url']}/remote.php/dav/files/{config['username']}/{config['watch_folder']}/"
+        url = f"{config['nextcloud_url'].rstrip('/')}/remote.php/dav/files/{config['username']}/{config['watch_folder'].strip('/')}/"
         response = requests.request(
             method="PROPFIND",
             url=url,
@@ -64,13 +64,13 @@ def list_remote_files(config):
 
 def lookup_contact_owner(filename, config):
     """Sucht nach Kontakten basierend auf dem Dateinamen"""
-    if not config.get("enable_contact_lookup"):
+    if not config.get("enable_contact_lookup", False):
         return None
         
     try:
         user_hint = filename.split('_')[0]
         response = requests.get(
-            f"{config['nextcloud_url']}/index.php/apps/contacts/api/v1/contact",
+            f"{config['nextcloud_url'].rstrip('/')}/index.php/apps/contacts/api/v1/contact",
             auth=(config['username'], config['password']),
             timeout=10
         )
@@ -78,6 +78,7 @@ def lookup_contact_owner(filename, config):
         if response.status_code == 200:
             contacts = response.json()
             for contact in contacts:
+                # Suche nach user_hint in Kontakt-Daten (z.B. Name, E-Mail)
                 if user_hint.lower() in json.dumps(contact).lower():
                     return contact.get('FN') or contact.get('name')
                     
@@ -109,7 +110,7 @@ def send_notification(config, filename, sender=None):
         if response.status_code == 200:
             logger.info(f"✅ Benachrichtigung gesendet: {filename}")
         else:
-            logger.error(f"❌ Fehler bei Benachrichtigung: {response.status_code}")
+            logger.error(f"❌ Fehler bei Benachrichtigung: {response.status_code} {response.text}")
             
     except Exception as e:
         logger.error(f"❌ Fehler beim Senden der Benachrichtigung: {e}")
@@ -160,4 +161,4 @@ def main():
         time.sleep(sleep_time)
 
 if __name__ == "__main__":
-    main() 
+    main()
