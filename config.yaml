@@ -1,5 +1,5 @@
 name: Nextcloud File Watcher
-version: "1.0.8"
+version: "1.1.2"
 slug: nextcloud_file_watcher
 description: Überwacht Nextcloud-Ordner und sendet Push-Benachrichtigungen bei neuen Dateien
 startup: application
