@@ -1,9 +1,10 @@
-name: "Nextcloud File Watcher"
+name: Nextcloud File Watcher
 version: "1.0.8"
-slug: "nextcloud_file_watcher"
-description: "Überwacht Nextcloud-Ordner und sendet Push-Benachrichtigungen bei neuen Dateien"
-startup: "application"
-boot: "auto"
+slug: nextcloud_file_watcher
+description: Überwacht Nextcloud-Ordner und sendet Push-Benachrichtigungen bei neuen Dateien
+startup: application
+boot: auto
+
 options:
   nextcloud_url: "https://deine-nextcloud.example.com"
   username: "dein-benutzer"
@@ -17,11 +18,57 @@ options:
     - ".pdf"
   notify_service: "notify.mobile_app_dein_gerät"
   enable_contact_lookup: false
-schema: "config.json"
+
+schema:
+  type: object
+  properties:
+    nextcloud_url:
+      type: string
+      title: Nextcloud URL
+      description: Die vollständige URL zu deiner Nextcloud-Instanz
+    username:
+      type: string
+      title: Benutzername
+      description: Der Nextcloud-Benutzername für den Zugriff
+    password:
+      type: string
+      title: Passwort
+      description: Das zugehörige Passwort für den Nextcloud-Benutzer
+    watch_folder:
+      type: string
+      title: Überwachter Ordner
+      description: Ordnername in Nextcloud, der überwacht wird
+    interval:
+      type: integer
+      title: Abfrageintervall (Sekunden)
+    file_types:
+      type: array
+      items:
+        type: string
+      title: Überwachte Dateitypen
+    notify_service:
+      type: string
+      title: Benachrichtigungsservice
+    enable_contact_lookup:
+      type: boolean
+      title: Kontakte lookup aktivieren
+
+required:
+  - nextcloud_url
+  - username
+  - password
+  - watch_folder
+  - interval
+  - file_types
+  - notify_service
+  - enable_contact_lookup
+
 arch:
   - amd64
   - aarch64
+
 homeassistant_api: true
 hassio_api: true
 host_network: true
+
 icon: "icon.png"
