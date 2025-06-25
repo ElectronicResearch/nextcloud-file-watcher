@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-python /app/briefkasten_watcher.py
+python /app/nextcloud_file_watcher/briefkasten_watcher.py
