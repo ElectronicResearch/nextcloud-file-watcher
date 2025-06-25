@@ -1,13 +1,14 @@
-FROM python:3.11-slim
+ARG BUILD_FROM
+FROM $BUILD_FROM
 
-WORKDIR /app
+ENV LANG C.UTF-8
 
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+RUN apk add --no-cache python3 py3-pip
 
-COPY run.sh ./
-COPY nextcloud_file_watcher ./nextcloud_file_watcher
+COPY requirements.txt /
+RUN pip install --no-cache-dir -r /requirements.txt
 
-RUN chmod +x run.sh
+COPY run.sh /run.sh
+RUN chmod a+x /run.sh
 
-CMD ["./run.sh"]
+CMD [ "/run.sh" ]
