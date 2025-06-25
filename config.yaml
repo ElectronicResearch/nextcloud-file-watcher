@@ -1,25 +1,31 @@
 name: Nextcloud File Watcher
-version: "1.1.3"
+version: "1.1.0"
 slug: nextcloud_file_watcher
 description: Überwacht einen Nextcloud-Ordner und sendet Benachrichtigungen bei neuen Dateien.
-startup: application
+startup: services
 boot: auto
+hassio_api: true
+homeassistant_api: true
+host_network: true
+privileged:
+  - NET_ADMIN
 options:
-  enable_contact_lookup: false
+  nextcloud_url: "https://nextcloud.example.com"
+  username: "dein_benutzername"
+  password: "dein_passwort"
+  watch_folder: "Briefkasten"
+  file_types:
+    - ".jpg"
+    - ".png"
   interval: 30
-  file_types: []
-  username: ""
-  password: ""
-  notify_service: ""
-  nextcloud_url: ""
-  watch_folder: ""
+  notify_service: "notify.mobile_app_dein_gerät"
+  enable_contact_lookup: false
 schema:
-  enable_contact_lookup: bool
-  interval: int
-  file_types: list(str)
+  nextcloud_url: str
   username: str
   password: password
-  notify_service: str
-  nextcloud_url: str
   watch_folder: str
-image: ghcr.io/electronicresearch/nextcloud-file-watcher-{arch}
+  file_types: list(str)
+  interval: int
+  notify_service: str
+  enable_contact_lookup: bool
