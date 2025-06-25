@@ -11,6 +11,7 @@ boot: auto
 homeassistant: true
 host_network: true
 privileged: false
+icon: icon.png
 capabilities:
   - NET_ADMIN
 options:
@@ -43,4 +44,3 @@ schema:
     type: string
   enable_contact_lookup:
     type: boolean
-  icon: "icon.png"
