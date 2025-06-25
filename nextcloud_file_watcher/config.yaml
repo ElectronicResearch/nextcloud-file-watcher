@@ -3,6 +3,7 @@ description: Überwacht Nextcloud-Ordner und sendet Push-Benachrichtigungen bei 
 version: "1.0.9"
 slug: nextcloud_file_watcher
 startup: application
+icon: icon.png
 boot: auto
 init: false
 panel_icon: mdi:cloud-upload
