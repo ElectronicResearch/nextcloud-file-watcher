@@ -43,3 +43,4 @@ schema:
     type: string
   enable_contact_lookup:
     type: boolean
+  icon: "icon.png"
