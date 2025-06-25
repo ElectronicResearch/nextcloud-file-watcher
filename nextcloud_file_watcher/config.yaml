@@ -1,0 +1,37 @@
+name: Nextcloud File Watcher
+description: Überwacht Nextcloud-Ordner und sendet Push-Benachrichtigungen bei neuen Dateien.
+version: "1.0.9"
+slug: nextcloud_file_watcher
+startup: application
+boot: auto
+init: false
+panel_icon: mdi:cloud-upload
+homeassistant_api: true
+hassio_api: true
+host_network: true
+arch:
+  - amd64
+  - aarch64
+options:
+  nextcloud_url: "https://deine-nextcloud.example.com"
+  username: "dein-benutzer"
+  password: "dein-passwort"
+  watch_folder: "Briefkasten"
+  interval: 600
+  file_types:
+    - ".jpg"
+    - ".jpeg"
+    - ".png"
+    - ".pdf"
+  notify_service: "notify.mobile_app_dein_gerät"
+  enable_contact_lookup: false
+schema:
+  nextcloud_url: str
+  username: str
+  password: str
+  watch_folder: str
+  interval: int
+  file_types:
+    - str
+  notify_service: str
+  enable_contact_lookup: bool
