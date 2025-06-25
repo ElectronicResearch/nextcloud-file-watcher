@@ -14,6 +14,7 @@ privileged: false
 icon: "icon.png"
 capabilities:
   - NET_ADMIN
+
 options:
   nextcloud_url: "https://nextcloud.example.com"
   username: "dein_benutzername"
@@ -22,25 +23,16 @@ options:
   file_types:
     - ".jpg"
     - ".png"
-  interval: 30
+  interval: 600
   notify_service: "notify.mobile_app_dein_gerät"
   enable_contact_lookup: false
+
 schema:
-  nextcloud_url:
-    type: string
-  username:
-    type: string
-  password:
-    type: string
-  watch_folder:
-    type: string
-  file_types:
-    type: array
-    items:
-      type: string
-  interval:
-    type: integer
-  notify_service:
-    type: string
-  enable_contact_lookup:
-    type: boolean
+  nextcloud_url: str
+  username: str
+  password: password
+  watch_folder: str
+  file_types: list(str)
+  interval: int
+  notify_service: str
+  enable_contact_lookup: bool
