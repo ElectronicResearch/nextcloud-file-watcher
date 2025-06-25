@@ -1,13 +1,11 @@
- #!/bin/sh
 FROM python:3.11-slim
 
 WORKDIR /app
 
-COPY nextcloud_file_watcher /app/nextcloud_file_watcher
-COPY requirements.txt /app/
-COPY run.sh /app/
+COPY briefkasten_watcher.py /app/
+COPY config.json /app/
 
-RUN pip install --no-cache-dir -r requirements.txt \
- && chmod +x /app/run.sh
+RUN pip install requests
 
-CMD ["/app/run.sh"]
+CMD ["python", "/app/briefkasten_watcher.py"]
+
