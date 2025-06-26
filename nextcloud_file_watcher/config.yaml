@@ -10,7 +10,7 @@ startup: services
 boot: auto
 homeassistant: true
 host_network: true
-privileged: false
+privileged: []
 icon: "icon.png"
 capabilities:
   - NET_ADMIN
