@@ -1,11 +1,18 @@
-ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base:latest
+ARG BUILD_FROM=ghcr.io/home-assistant/amd64-addon-python:latest
 FROM ${BUILD_FROM}
 
 ENV LANG C.UTF-8
 
-RUN apk add --no-cache python3 py3-pip
+# Falls Python-Pakete benötigt werden:
+COPY requirements.txt /requirements.txt
+RUN pip3 install --no-cache-dir -r /requirements.txt
 
-COPY run.sh /
-RUN chmod a+x /run.sh
+# Dein Skript kopieren
+COPY run.sh /run.sh
+RUN chmod +x /run.sh
 
-CMD [ "/run.sh" ]
+# s6 benötigt diese Startstruktur
+COPY rootfs/ /
+
+# Startpunkt (nicht direkt /run.sh!)
+CMD [ "/init" ]
