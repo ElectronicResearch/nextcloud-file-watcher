@@ -1,3 +1,11 @@
-__pycache__/
+# Diese Dateien und Ordner sollen NICHT ins Docker-Image
+.git
+.github
+.vscode
+*.md
 *.log
+repository.yaml
+.DS_Store
 *.pyc
+__pycache__/
+
