@@ -1,2 +1,4 @@
 #!/usr/bin/with-contenv bashio
-python3 briefkasten_watcher.py
+
+echo "📦 Starte Nextcloud File Watcher..."
+python3 /nextcloud_file_watcher/briefkasten_watcher.py
