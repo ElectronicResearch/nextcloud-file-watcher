@@ -11,8 +11,4 @@ COPY rootfs/etc/services.d/app/run /etc/services.d/app/run
 
 RUN chmod +x /run.sh
 RUN chmod +x /etc/services.d/app/run
-
-<<<<<<< HEAD
 CMD [ "/run.sh" ]
-=======
->>>>>>> 61dde1b (Update: gesamte Add-on Struktur überarbeitet)
