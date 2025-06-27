@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base:latest
+AARG BUILD_FROM=ghcr.io/home-assistant/amd64-base:latest
 FROM ${BUILD_FROM}
 
 ENV LANG C.UTF-8
@@ -12,4 +12,7 @@ COPY rootfs/ /
 RUN chmod +x /run.sh
 RUN chmod +x /etc/services.d/app/run
 
+<<<<<<< HEAD
 CMD [ "/run.sh" ]
+=======
+>>>>>>> 61dde1b (Update: gesamte Add-on Struktur überarbeitet)

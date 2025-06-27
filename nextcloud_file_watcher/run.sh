@@ -1,4 +1,7 @@
 #!/usr/bin/with-contenv bashio
 
-echo "📦 Starte Nextcloud File Watcher..."
-python3 /nextcloud_file_watcher/briefkasten_watcher.py
+export SUPERVISOR_TOKEN=$SUPERVISOR_TOKEN
+
+echo "[INFO] Starte Nextcloud Watcher..."
+python3 /briefkasten_watcher.py
+
