@@ -1,2 +1,2 @@
 #!/usr/bin/with-contenv bash
-python3 /nextcloud_file_watcher/briefkasten_watcher.py
+exec /run.sh
