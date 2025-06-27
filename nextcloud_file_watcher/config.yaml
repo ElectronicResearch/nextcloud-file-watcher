@@ -1,5 +1,5 @@
 name: Nextcloud File Watcher
-version: "1.2.0"
+version: "1.2.1a"
 slug: nextcloud_file_watcher
 description: Überwacht einen Nextcloud-Ordner und sendet Benachrichtigungen bei neuen Dateien.
 arch:
@@ -20,7 +20,11 @@ options:
   username: "dein_benutzername"
   password: "dein_passwort"
   watch_folder: "Briefkasten"
-  file_types: ".jpg,.png,.pdf,.doc,.odt"
+  file_types:
+    - ".jpg"
+    - ".png"
+    - ".pdf"
+    - ".doc"
   interval: 600
   notify_service: "notify.mobile_app_dein_gerät"
   enable_contact_lookup: false
