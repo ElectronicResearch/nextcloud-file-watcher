@@ -7,7 +7,7 @@ RUN apk add --no-cache python3 py3-pip curl
 COPY run.sh /run.sh
 RUN chmod +x /run.sh
 
-COPY nextcloud_file_watcher /nextcloud_file_watcher
+COPY nextcloud_file_watcher /
 
 RUN pip3 install requests
 
