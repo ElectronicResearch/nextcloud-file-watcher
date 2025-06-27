@@ -3,12 +3,13 @@ FROM ${BUILD_FROM}
 
 ENV LANG C.UTF-8
 
-RUN apk add --no-cache python3 py3-pip curl
+RUN apk add --no-cache python3 py3-pip
+
 COPY run.sh /run.sh
+COPY briefkasten_watcher.py /briefkasten_watcher.py
+COPY rootfs/ /
+
 RUN chmod +x /run.sh
-
-COPY nextcloud_file_watcher /nextcloud_file_watcher
-
-RUN pip3 install requests
+RUN chmod +x /etc/services.d/app/run
 
 CMD [ "/run.sh" ]
