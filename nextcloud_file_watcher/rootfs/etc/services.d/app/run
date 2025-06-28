@@ -1,3 +1,2 @@
 #!/usr/bin/with-contenv sh
-exec /run.sh
-
+exec python3 /briefkasten_watcher.py
