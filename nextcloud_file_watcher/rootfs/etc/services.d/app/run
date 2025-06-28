@@ -1,2 +1,4 @@
-#!/usr/bin/with-contenv bashio
-exec /run.sh
+#!/usr/bin/with-contenv bash
+echo "Starte Nextcloud File Watcher..."
+cd /app || exit 1
+exec python3 briefkasten_watcher.py
