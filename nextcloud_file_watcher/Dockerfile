@@ -3,14 +3,16 @@ FROM ${BUILD_FROM}
 
 ENV LANG C.UTF-8
 
+# Installiere Python und pip
 RUN apk add --no-cache python3 py3-pip
 
-COPY requirements.txt /requirements.txt
-RUN pip install --no-cache-dir /requirements.txt
+# Optional: requirements.txt, wenn du z. B. "requests" brauchst
+COPY requirements.txt /
+RUN pip install --no-cache-dir -r /requirements.txt
 
-COPY rootfs /
-COPY briefkasten_watcher.py /briefkasten_watcher.py
-COPY run.sh /run.sh
-RUN chmod +x /run.sh
+# Skripte und Konfiguration kopieren
+COPY rootfs /  # <- wichtig: enthält /etc/services.d/app/run
+COPY briefkasten_watcher.py /app/briefkasten_watcher.py
 
+# Muss vorhanden sein – startet das S6-Overlay-System
 CMD ["/init"]
