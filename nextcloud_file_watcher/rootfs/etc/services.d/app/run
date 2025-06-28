@@ -1,4 +1,3 @@
-#!/usr/bin/with-contenv bash
-echo "Starte Nextcloud File Watcher..."
-cd /app || exit 1
-exec python3 briefkasten_watcher.py
+#!/usr/bin/with-contenv sh
+exec /run.sh
+
