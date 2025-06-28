@@ -3,9 +3,17 @@ FROM ${BUILD_FROM}
 
 ENV LANG C.UTF-8
 
+# Python und Pip installieren
 RUN apk add --no-cache python3 py3-pip
 
+# Optional: Abhängigkeiten (z. B. für nextcloud-API etc.)
+# Beispiel: RUN pip3 install requests nextcloud-client
+
+# Skript kopieren
+COPY briefkasten_watcher.py /app/briefkasten_watcher.py
+
+# Startskripte für s6-overlay
 COPY rootfs /
-COPY briefkasten_watcher.py /briefkasten_watcher.py
-COPY run.sh /run.sh
-RUN chmod +x /run.sh
+
+# ❗ wichtig: S6 startet über /init (PID 1)
+CMD ["/init"]
