@@ -6,7 +6,7 @@ ENV LANG C.UTF-8
 RUN apk add --no-cache python3 py3-pip
 
 COPY requirements.txt /requirements.txt
-RUN pip install --no-cache-dir -r /requirements.txt
+RUN pip install --no-cache-dir --verbose -r /requirements.txt
 
 COPY rootfs /
 COPY briefkasten_watcher.py /briefkasten_watcher.py
