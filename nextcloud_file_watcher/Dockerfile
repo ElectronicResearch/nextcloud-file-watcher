@@ -5,10 +5,7 @@ ENV LANG C.UTF-8
 
 RUN apk add --no-cache python3 py3-pip
 
-COPY run.sh /run.sh
+COPY rootfs/ /  # wichtig: rootfs muss korrekt kopiert werden!
 COPY briefkasten_watcher.py /briefkasten_watcher.py
-COPY rootfs/etc/services.d/app/run /etc/services.d/app/run
-
+COPY run.sh /run.sh
 RUN chmod +x /run.sh
-RUN chmod +x /etc/services.d/app/run
-CMD [ "/run.sh" ]

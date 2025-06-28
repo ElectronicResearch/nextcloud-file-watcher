@@ -1,2 +1,2 @@
-#!/usr/bin/with-contenv bash
-/run.sh
+#!/usr/bin/with-contenv bashio
+exec /run.sh
